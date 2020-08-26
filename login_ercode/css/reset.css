@@ -1,0 +1,80 @@
+/* 重置样式 */
+/* 设置字符编码 */
+@charset "utf-8";
+
+/* 清除间距 */
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img,input{
+    margin:0;
+    padding:0;
+}
+/* 字体设置 */
+body{
+    font-size: 16px;
+    font-family: "Microsoft Yahei";
+}
+/* 清除列表符号 */
+ul,ol,li,dl,dd,dt{
+    list-style: none;
+}
+/* 清除字体加粗 */
+b,strong,h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+/* 清除字体倾斜 */
+i,em{
+    font-style: normal;
+}
+/* 清除下划线 */
+a,u{
+    text-decoration: none;
+}
+/* 清除边框 */
+img,fieldset{
+    border: none;
+}
+/* img转块 */
+img{
+    display:block;
+}
+/* 清除输入框聚焦时边框 */
+input{
+    outline:none;
+}
+/* 禁止用户拖拽大小 */
+textarea{
+    resize:none;
+}
+
+/* 封装类名 */
+.float_left{
+    float: left;
+}
+.float_right{
+    float:right;
+}
+.border_none{
+    border:none!important;
+}
+.bg_none{
+    background: none!important;
+}
+/* 单行文本省略号 */
+.text_ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* 解决高度塌陷问题 */
+.clear_fix::after{
+    content: " ";
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+}
+.clear_fix{
+    zoom:1;
+}
+
+

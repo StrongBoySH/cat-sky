@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <link rel="stylesheet" href="./css/car.css">
+    <link rel="stylesheet" href="./icon/iconfont.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <script src="./js/ajax.js"></script>
+</head>
+<body>
+     <!-- 头部信息 -->
+     <header>
+        <div class="head">
+            <ul class="head_left">
+                <li><a href="#">Hi，欢迎购物</a></li>
+                <li><a href="#">积分：110</a></li>
+                <li><a href="http://localhost/subject/login.html">退出</a></li>
+            </ul>
+            <ul class="head_right">
+                <li><a href="#">我的淘宝</a>
+                <div class="buy_goods">
+                    <a href="">已买到的宝贝</a>
+                    <a href="">已卖出的宝贝</a>
+                </div>
+                </li>
+                <li><a href="http://localhost/subject/car.html"><span class="iconfont icon-tianmaogouwuche"></span>购物车</a></li>
+                <li><a href="#">收藏夹</a>
+                    <div class="buy_goods">
+                        <a href="">收藏的宝贝</a>
+                        <a href="">收藏的店铺</a>
+                    </div>
+                </li>
+                <li><a href="#"><span class="iconfont icon-lujing141"></span>手机版</a>
+                    <div class="tianmao_code">
+                        <img src="./shop_Images/tianmao_code.png" alt="" srcset=""> 
+                    </div>
+                </li>
+                <li><a href="#">淘宝网</a></li>
+                <li><a href="#">商家支持</a></li>
+                <li><a href="#"><span class="iconfont icon-liebiao2"></span>网站导航</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- 搜索 -->
+    <div id="carSearch">
+        <div class="carSearch-cont">
+            <div class="carSearch_left"><img src="./images/car_log.png" alt=""></div>
+            <div class="carSearch_right">
+                <p class="carSearch_bar">宝贝</p>
+                <input type="text">
+                <p class="carSearch_btn">搜 索</p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="ttable">
+            <div class="tstart">
+                <p>全部商品 <em>0</em></p>
+                <p>降价商品 <em>0</em></p>
+                <p>库存紧张 <em>0</em></p>
+                <div class="tstart_right">
+                    已选商品(不含运费)<em>0.00</em>
+                    <div class="tstart_btn">结算</div>
+                </div>
+            </div>
+            <div class="ttitle">
+                <p><input class="check1 check-all" type="checkbox" all-key="1">&nbsp;&nbsp;全选</p> 
+                <p>商品信息</p>
+                <p>单价</p>
+                <p>数量</p>
+                <p>金额</p>
+                <p>操作</p>
+            </div>
+            <div class="tcont">
+                <!-- <div class="tcont_box">
+                    <div class="tcont_shop">
+                        <p>店铺：我是超级大英雄</p>
+                    </div>
+                    <div class="tcont_gift">
+                        <div class="gift1"><input type="checkbox"></div>
+                        <div class="gift2">
+                            <p class="tcont_gift_img"><img src="./shop_Images/chaoshi1.jpg" alt=""></p>
+                            <p>蒙牛纯牛奶200ml*24礼盒尊享装早餐奶整箱批特价儿童成人学生</p>
+                        </div>
+                        <div class="gift3">
+                            <em>￥5.5</em>
+                        </div>
+                        <div class="gift4">
+                            <i class="up">-</i>
+                            <input type="text" value="1">
+                            <i class="down">+</i>
+                        </div>
+                        <div class="gift5">
+                            <em>￥5.5</em>
+                        </div>
+                        <div class="gift6">
+                            <p><b>移入收藏夹</b></p>
+                            <p><b>删除</b></p> 
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- 尾部 -->
+            <div class="tend">
+                <div class="tend_left1"><input class="check2 check-all" type="checkbox" all-key="0">&nbsp;&nbsp;全选</div>
+                <div class="tend_left2"></div>
+                <div class="tend_left3"></div>
+                <div class="tend_left4"></div>
+
+                <div class="tend_btn">结 算</div>
+                <div class="tend_sum">合计（不含运费）：<em>0.00</em></div>
+                <div class="tend_sort"><em>总价排序</em></div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="./js/Car.js"></script>
+</html>

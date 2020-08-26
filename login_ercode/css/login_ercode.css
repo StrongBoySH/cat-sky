@@ -1,0 +1,388 @@
+/* commen:start */
+
+
+body {
+    font-size: 15px;
+    color: #1a1a1a;
+    width: 350px;
+    /* height: 365px; */
+    overflow:hidden;
+    padding-top: 10px;
+}
+.main {
+    width: 100%;
+    /* height: 100vh; */
+    overflow: auto;
+    display: flex;
+}
+
+.main_bg {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center no-repeat;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-size: cover;
+    width: 100%;
+    /* height: 100vh; */
+    overflow: auto;
+}
+.messageLogin{
+    display: none;
+}
+.messageSign{
+    display: none;
+}
+/* 输入内容有误，提示框 */
+.warningBox{
+    width: 284px;
+    height: 32px;
+    border-color: #ffb4a8;
+    background-color: #fef2f2;
+    border: 1px solid #ff934c;
+    color: #6c6c6c;
+    font-size: 12px;
+    line-height: 32px;
+    padding-left: 16px;
+    display: none;
+}
+a {
+    text-decoration: none;
+}
+
+input {
+    color: #1a1a1a;
+}
+
+.lf {
+    float: left;
+}
+
+.rt {
+    float: right;
+}
+
+/* .button {
+    display: inline-block;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 3px;
+} */
+
+/* button {
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+} */
+
+.unView {
+    display: none;
+}
+
+/* commen:start */
+/* main */
+
+
+/* loginBox */
+.loginBox {
+    box-sizing: border-box;
+    margin:auto;
+    min-width: 0;
+    padding: 0;
+    background-color: #FFF;
+    box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+    border-radius: 2px;
+    background-color: #FFF;
+    width: 340px;
+    height: 465px;
+}
+/* 输入用户名，密码框 */
+.inputBox{
+    width: 290px;
+    height: 100px;
+}
+/* 用户名框 */
+.inputBox .userBox{
+    width: 300px;
+    height: 42px;
+    margin-top: 10px;
+    border:solid 1px #f1eeee;
+}
+.inputBox .userBox:hover{
+    border:solid 1px #ff0036;
+}
+.inputBox .iconfont{
+    display: block;
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+    line-height: 42px;
+    text-align: center;
+    background-color: #ccc;
+    color: white;
+    float: left;
+}
+.inputBox input{
+    width: 248px;
+    height: 42px;
+    float: right;
+    border: none;
+}
+/* 登录密码框 */
+.inputBox .passBox{
+    margin-top: 20px;
+    width: 300px;
+    height: 42px;
+    border:solid 1px #f1eeee;
+}
+.inputBox .passBox:hover{
+    border:solid 1px #ff0036;
+}
+/* 忘记密码，忘记用户名，免费注册 */
+.forgetBox{
+    width: 300px;
+    height: 40px;
+    color: #6c6c6c;
+    font-size: 12px;
+    margin-top: 24px;
+}
+.forgetBox .forgetWords{
+    float: right;
+}
+.forgetBox .register{
+    float: right;
+    margin-right: 20px;
+}
+.forgetBox a{
+    color: #6c6c6c;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.signContainer {
+    position: relative;
+    border-radius: 4px 4px 0 0;
+}
+
+.loginForm {
+    padding: 0 24px 84px;
+}
+
+
+.loginForm .tabBoxSwitch .tabBoxSwitchUl {
+    list-style: none;
+}
+
+.loginForm .tabBoxSwitch .tabBoxSwitchUl li {
+    display: inline-block;
+    height: 60px;
+    font-size: 16px;
+    line-height: 60px;
+    margin-right: 24px;
+    cursor: pointer;
+}
+
+.tab-active {
+    position: relative;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-synthesis: style;
+}
+
+.tab-active::before {
+    display: block;
+    position: absolute;
+    bottom: 14px;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+
+.tabBox {
+    text-align: left;
+}
+
+.ercode_tab {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    top: 0;
+    right: 0;
+}
+
+.ercode_tab svg {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.selectConentent {
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 233;
+    background-color: #ffffff;
+    left: -24px;
+    border: 1px solid #ebebeb;
+    width: 210px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 5px 20px rgba(26, 26, 26, .1);
+    box-shadow: 0 5px 20px rgba(26, 26, 26, .1);
+}
+
+
+
+.msgBtn {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    padding: 4px 0;
+    color: #175199;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.msgBtn:hover,
+.voice-btn:hover {
+    color: #76839b;
+}
+
+
+.voice-btn {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 32px;
+    color: #8590a6;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+}
+
+#login_submit{
+    color: #fff;
+    background-color: #ff0036;
+    width: 100%;
+    margin-top: 30px;
+    height: 40px;
+    border-color: #0084ff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+
+
+.out-login-btn-shw {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 32px;
+    color: #175199;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border-radius: 3px;
+    display: none;
+}
+
+.out-login-btn-shw:hover {
+    color: #76839b;
+}
+
+
+.login-out-phoneBox {
+    display: none;
+}
+
+
+
+.SignContainer-tip a {
+    color: grey;
+    text-decoration: none;
+}
+
+
+.ercodeSignBox {
+    position: relative;
+    text-align: center;
+    padding: 40px 0;
+    display: none;
+}
+
+.Qrcode-title {
+    height: 18px;
+    line-height: 18px;
+    font-size: 16px;
+    color: #3c3c3c;
+    margin-top: 9px;
+    padding-bottom: 8px;
+    font-weight: 700;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.ercodeBox {
+    height: 210px;
+}
+
+.ercodeBox .Qrcode-img {
+    margin: 50px auto 15px;
+    line-height: 0;
+    height: 150px;
+    width: 150px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.Qrcode-txt{
+    position: relative;
+}
+.ercodeBox .Qrcode-txt .iconfont{
+    color: #ff0036;
+    font-size: 30px;
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 60px;
+}
+.ercodeBox .Qrcode-txt p {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: left;
+    margin-left: 100px;
+}
+
+.ercodeBox .Qrcode-txt p a {
+    color: red;
+}
+.ercodeBox em{
+    float: right;
+    margin-right: 20px;
+}
+.ercodeBox em a{
+    color: #6c6c6c;
+    font-size: 12px;
+}
