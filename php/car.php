@@ -6,13 +6,28 @@ $fn();
 /***获取购物车数据***/
 function lst()
 {
-   $id=$_POST['userId'];
+  $id=$_POST['userId'];
+  //分页的长度
+  // $length=5;
+  //当前页码
+  // $page=$_POST['page'];
+  //起始位置
+  // $start=($page-1)*$length;
+  //获取当前用户的表数据长度
+  // $sql1='select count($id) cou from Car';
+  // $con=select($sql1)[0]['cou'];
+  //计算总的页数
+  // $pcount=ceil($con/$length);
+
+
+  
    $sql='select * from Car where UserId='.$id;
    $data = select($sql);
    echo json_encode([
   'stateCode'=>200,
   'state'=>'success',
   'data'=>$data
+  // 'cout'=>$pcount
    ]);
 }
 

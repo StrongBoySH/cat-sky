@@ -16,9 +16,9 @@ header {
   color: #999;
   font-size: 12px; }
 
-.head li:hover a {
+.head li:hover > a {
   color: red;
-  border-bottom: 1px solid red; }
+  border-bottom: solid 1px red; }
 
 .head_left {
   width: 200px;
@@ -133,7 +133,9 @@ header {
 
 .tstart {
   height: 33px;
-  border-bottom: solid 2px #e5e5e5; }
+  border-bottom: solid 2px #e5e5e5;
+  margin-top: 20px;
+  margin-bottom: 20px; }
 
 .tstart p {
   width: 112px;
@@ -142,7 +144,8 @@ header {
   color: black;
   font-weight: bolder;
   padding: 0 0 13px 18px;
-  cursor: pointer; }
+  cursor: pointer;
+  padding-bottom: 20px; }
 
 .tstart p:hover {
   border-bottom: solid 2px red; }
@@ -324,7 +327,8 @@ header {
   width: 26px;
   margin: 0 10px;
   cursor: pointer;
-  float: left; }
+  float: left;
+  position: relative; }
 
 .tend .tend_left2:hover {
   color: red; }
@@ -360,6 +364,11 @@ header {
   font-size: 18px;
   font-weight: bolder;
   cursor: pointer; }
+
+.pagination {
+  display: flex;
+  position: absolute;
+  top: -10px; }
 
 .tend .tend_sum {
   width: 200px;

@@ -3,6 +3,7 @@ class register {
         this.addEvent();
     }
     addEvent() {
+        //1.判断用户名的格式是否正确， 2.判断当前用户名是否与数据库中的用户名存在
         $(".user").blur(()=>{
             //获取用户框数据
             let val=$(".user").val();
@@ -27,10 +28,10 @@ class register {
                     }
                 })
             }else{
-                $("#q1").html('用户名不合法');
+                $("#q1").html('用户名格式错误');
             }
         })
-
+          //给注册绑定点击事件，
         $(".btn").click(() => {
             this.phone = $(".user").val();
             this.pwd = $(".pass").val();
@@ -41,6 +42,7 @@ class register {
             }
         })
     }
+    //存数据库的方法
     setDate(phone, pwd) {
         ajax.post('./php/user.php?fn=add', { phone: phone, pwd: pwd }).then((res) => {
             console.log(res);

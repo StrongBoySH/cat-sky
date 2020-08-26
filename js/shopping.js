@@ -24,14 +24,14 @@
         // 删除一级列表a中a_active属性
         $(this).find("a").removeClass("a_active");
     })
+      
 
     class Goods {
         constructor() {
             this.list();
         }
         list() {
-            let user = localStorage.getItem('user');
-        
+               //通过ajax遍历所有数据库商品表中的所有数据，将数据显示到首页
                 ajax.get('./php/shopping.php', { fn: 'lst' }).then(res => {
                     // console.log(111);
                     let { stateCode, data } = JSON.parse(res);//将字符串转化为对象
@@ -40,6 +40,7 @@
                         let str = '';//用来储存数据
                         data.forEach(ele => {
                             // console.log(111);
+                            //数据的拼接
                             str += `
                             <a href="http://localhost/subject/detail.html?shopId=${ele.goodsId}" target="_blank" onclick="">
                             <img src="${ele.img}" alt="">
@@ -59,7 +60,7 @@
                 })
            
            document.getElementById('exit').addEventListener('click',function(){
-               console.log(111);
+            //    console.log(111);
                localStorage.removeItem('user');
            }) 
         }

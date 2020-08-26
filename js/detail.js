@@ -18,12 +18,14 @@ class deTail {
         //  console.log(eve);
         eve.addEventListener(type, cb);
     }
+    //数量增加的方法
     Add(eleobj) {
         //获取显示数量的节点
         let inputObj = eleobj.parentNode.previousElementSibling;
         inputObj.value = inputObj.value - 0 + 1;
 
     }
+    //数量减少的方法
     reduce(eleobj) {
         let inputObj = eleobj.parentNode.previousElementSibling;
         inputObj.value = inputObj.value - 0 - 1;
@@ -77,9 +79,12 @@ class deTail {
             //点击添加购物车，将数据存到数据库；
             this.scobj = document.querySelector('#shopcar');
             // console.log(UserId);
+
             //调用放大镜
             this.bigimg();
             // console.log(this.scobj);
+
+            //调用将数据传到数据库购物车的方法
             this.scobj.addEventListener('click', this.add.bind(this, CarTitle, CarPrice, CarImg));
 
 
@@ -99,8 +104,12 @@ class deTail {
             let BPrice = (bPrice * num)
             console.log(BPrice);
             ajax.post('./php/detail.php?fn=add', { UserId: UserId, CarTitle: CarTitle, CarPrice: CarPrice, CarImg: CarImg, num: num, BPrice: BPrice }).then(res => {
-                console.log(res);
-
+                // console.log(res);
+                let {stateCode}=JSON.parse(res);
+                if(stateCode==200){
+                    alert('以成功加入购物车');
+                }
+                
             })
         }else{
             alert('您还未登录请前去登录');

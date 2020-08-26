@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>购物车</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/car.css">
     <link rel="stylesheet" href="./icon/iconfont.css">
     <link rel="stylesheet" href="./css/reset.css">
@@ -105,16 +106,53 @@
             <!-- 尾部 -->
             <div class="tend">
                 <div class="tend_left1"><input class="check2 check-all" type="checkbox" all-key="0">&nbsp;&nbsp;全选</div>
-                <div class="tend_left2"></div>
+                <div class="tend_left2">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                          <li>
+                            <a href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">1</a>
+                          </li>
+                          <li>
+                            <a href="#">2</a>
+                          </li>
+                          <li>
+                            <a href="#">3</a>
+                          </li>
+                          <li>
+                            <a href="#">4</a>
+                          </li>
+                          <li>
+                            <a href="#">5</a>
+                          </li>
+                          <li>
+                            <a href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
                 <div class="tend_left3"></div>
                 <div class="tend_left4"></div>
-
+                
+    
                 <div class="tend_btn">结 算</div>
                 <div class="tend_sum">合计（不含运费）：<em>0.00</em></div>
                 <div class="tend_sort"><em>总价排序</em></div>
             </div>
+            
         </div>
     </main>
 </body>
 <script src="./js/Car.js"></script>
+<!--由于bootstrap基于JQuery文件，必须先引入jquery-->
+<script src="bootstrap/js/jquery-2.2.4.js"></script>
+ <!--引入bootstrap的js文件-->
+ <script src="bootstrap/js/bootstrap.min.js"></script>
+
 </html>
