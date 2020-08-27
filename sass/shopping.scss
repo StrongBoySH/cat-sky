@@ -90,6 +90,40 @@ $Rcolor:red;
 
 
 /* 搜索 */
+.input_Hbox{
+    margin: 0 auto;
+    width: 625px;
+    height: 40px;
+    margin: auto;
+    border: solid 2px #FF0036;
+    box-sizing: border-box;//规定两个并排的带边框的框
+    display: none;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+
+}
+ .input_Hbox input{
+    width: 484px;
+    height: 36px;
+    border: none;
+    outline: none;
+    float: left;
+    padding-left: 6px;
+}
+.input_Hbox .search_btn{
+    width: 131px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    background-color: #FF0036;
+    float: right;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 #search{
     background-color: white;
 }
@@ -104,8 +138,8 @@ $Rcolor:red;
     margin: auto;
     border: solid 2px #FF0036;
     box-sizing: border-box;
-    position: sticky;
-    top: 0;
+    // position: f;
+    // top: 0;
 }
 .search_box .input_box input{
     width: 484px;

@@ -1,5 +1,6 @@
 class deTail {
     constructor() {
+        //获取当前商品的id
         this.Id = location.search.substr(1);
         // console.log(this.Id);
         // console.log(this.Id.substr(7));
@@ -8,8 +9,9 @@ class deTail {
         // console.log(this.upobj,this.downobj);
         this.bindeve(this.upobj, 'click', this.Add.bind(this, this.upobj));
         this.bindeve(this.downobj, 'click', this.reduce.bind(this, this.downobj));
-
+         //因为location.search.substr(1)获取得到是字符串 shopId=num;所以想获取num,必须计算num在字符串中的位置，用substr获取；
         this.load(this.Id.substr(7));
+        // console.log(this.Id.substr(0));
 
 
     }
@@ -31,6 +33,7 @@ class deTail {
         inputObj.value = inputObj.value - 0 - 1;
 
     }
+    //获取当前详情页信息的方法
     load(goodid) {
         ajax.get('./php/detail.php', { fn: 'getitp', goodsId: goodid }).then(res => {
             // console.log(res);
@@ -59,9 +62,9 @@ class deTail {
             }
             document.querySelector('.detail_left').innerHTML = str;
             document.querySelector('.title_data').innerHTML = str2;
-            console.log(66667);
+            // console.log(66667);
             this.imgobj = document.querySelector('#bimg');
-            console.log(this.imgobj);
+            // console.log(this.imgobj);
             //获取图片
             let carimg = document.querySelector('.detail_img').children[0];
             let CarImg = carimg.src;
@@ -74,36 +77,43 @@ class deTail {
             let carprice = document.querySelector('.detail_price').children[1];
             let CarPrice = carprice.innerHTML;
             // console.log(CarPrice);
+
+            //获取商品id
+            let goodsid= location.search.substr(8);
+            // console.log(goodsid);
             //获取用户名
             // let UserId=localStorage.getItem('user');
             //点击添加购物车，将数据存到数据库；
             this.scobj = document.querySelector('#shopcar');
             // console.log(UserId);
 
-            //调用放大镜
+            //调用放大镜  注意：因为放在外边或者放另一个文件中，会出现节点无法获取的问题，所以放在获取数据方法的内部
             this.bigimg();
             // console.log(this.scobj);
 
             //调用将数据传到数据库购物车的方法
-            this.scobj.addEventListener('click', this.add.bind(this, CarTitle, CarPrice, CarImg));
+            this.scobj.addEventListener('click', this.add.bind(this, CarTitle, CarPrice, CarImg,goodsid));
 
 
             // console.log(this);
+           
         })
+       
     }
-    add(CarTitle, CarPrice, CarImg) {
+    //添加到购物车的方法
+    add(CarTitle, CarPrice, CarImg,goodsid) {
         let UserId = localStorage.getItem('user');
         // console.log(111);
         //获取数量
         if (UserId) {
             let num = document.querySelector('#Number').value;
-            console.log(num);
+            // console.log(num);
             //获取商品小计
             let bprice = document.querySelector('.detail_price').children[1];
             let bPrice = bprice.innerHTML;
             let BPrice = (bPrice * num)
-            console.log(BPrice);
-            ajax.post('./php/detail.php?fn=add', { UserId: UserId, CarTitle: CarTitle, CarPrice: CarPrice, CarImg: CarImg, num: num, BPrice: BPrice }).then(res => {
+            // console.log(BPrice);
+            ajax.post('./php/detail.php?fn=add', { UserId: UserId, CarTitle: CarTitle, CarPrice: CarPrice, CarImg: CarImg, num: num, BPrice: BPrice,goodsid:goodsid}).then(res => {
                 // console.log(res);
                 let {stateCode}=JSON.parse(res);
                 if(stateCode==200){

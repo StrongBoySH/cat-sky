@@ -21,7 +21,8 @@ function getitp()
    $CarImg=$_POST['CarImg'];
    $num=$_POST['num'];
    $bprice=$_POST['BPrice'];
-   $sql="insert into Car(img,UserId,Num,Title,bPirce,CarPirce) values('$CarImg','$UserId','$num','$CarTitle','$bprice','$CarPrice')";
+   $goodsid=$_POST['goodsid'];
+   $sql="insert into Car(img,UserId,Num,Title,bPirce,CarPirce,goodsid) values('$CarImg','$UserId','$num','$CarTitle','$bprice','$CarPrice','$goodsid') on duplicate key update Num=Num+'$num'";
    $res=query($sql);
    if($res==1){
        echo json_encode([

@@ -1,6 +1,8 @@
 class Goods {
     constructor() {
         Goods.list();
+
+        //无限加载
         //1.绑定滚动条事件
         window.addEventListener('scroll',function(){
           //2.获取可视区域的高度与滚动条的高度的和==显示内容的区域高度
@@ -41,10 +43,11 @@ class Goods {
                     document.querySelector('.market').innerHTML += str;
                 }
             })
-            // document.getElementById('exit').addEventListener('click',function(){
-            //   //    console.log(111);
-            //      localStorage.removeItem('user');
-            //  }) 
+            //点击退出删除用户id
+            document.getElementById('exit').addEventListener('click',function(){
+              //    console.log(111);
+                 localStorage.removeItem('user');
+             }) 
        
     }
      //获取窗口的高度

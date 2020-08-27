@@ -8,26 +8,26 @@ function lst()
 {
   $id=$_POST['userId'];
   //分页的长度
-  // $length=5;
+  $length=3;
   //当前页码
-  // $page=$_POST['page'];
+  $page=$_POST['page'];
   //起始位置
-  // $start=($page-1)*$length;
+  $start=($page-1)*$length;
   //获取当前用户的表数据长度
-  // $sql1='select count($id) cou from Car';
-  // $con=select($sql1)[0]['cou'];
+  $sql1="select  count(id) cou from Car where UserId='$id'";
+  $con=select($sql1)[0]['cou'];
   //计算总的页数
-  // $pcount=ceil($con/$length);
+  $pcount=ceil($con/$length);
 
 
   
-   $sql='select * from Car where UserId='.$id;
+   $sql="select * from Car where UserId='$id' order by id limit $start,$length";
    $data = select($sql);
    echo json_encode([
   'stateCode'=>200,
   'state'=>'success',
-  'data'=>$data
-  // 'cout'=>$pcount
+  'data'=>$data,
+  'cout'=>$pcount
    ]);
 }
 

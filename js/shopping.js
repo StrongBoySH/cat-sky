@@ -29,6 +29,25 @@
     class Goods {
         constructor() {
             this.list();
+            //吸顶
+            window.addEventListener('scroll',(eve)=>{
+                  let e=eve||window.event;
+                  //获取滚动条高度
+                  let getTop=window.pageYOffset || document.body.scrollTop;
+                //   console.log(getTop);
+                  //获取搜索框在页面的高度
+                  let  boxobj=document.querySelector('.input_box').offsetTop;
+               
+                //当滚动条高度大于搜索框页面高度时，让隐藏的搜索框显示
+                if(getTop>boxobj){
+                    document.querySelector('.input_Hbox').style.display='block';
+                    
+                    
+                }else{
+                    document.querySelector('.input_Hbox').style.display='none';
+                }
+
+            })
         }
         list() {
                //通过ajax遍历所有数据库商品表中的所有数据，将数据显示到首页
@@ -40,7 +59,7 @@
                         let str = '';//用来储存数据
                         data.forEach(ele => {
                             // console.log(111);
-                            //数据的拼接
+                            //数据的拼接 特别注意：在点击商品时要将商品id放在超链接的后面，用商品id获取详情页的显示信息
                             str += `
                             <a href="http://localhost/subject/detail.html?shopId=${ele.goodsId}" target="_blank" onclick="">
                             <img src="${ele.img}" alt="">
@@ -58,7 +77,7 @@
 
                     }
                 })
-           
+           //点击退出时，删除用户ID；
            document.getElementById('exit').addEventListener('click',function(){
             //    console.log(111);
                localStorage.removeItem('user');

@@ -1,17 +1,20 @@
 class cart {
     constructor() {
-        this.uId=localStorage.getItem('user');
-        this.list(this.uId);
+        
+        cart.list();
         // console.log(this.uId);
         //给全选按钮绑定事件
         document.getElementsByClassName('check-all')[0].addEventListener('click',this.checkAll);
         document.getElementsByClassName('check-all')[1].addEventListener('click',this.checkAll);
     }
     /****获取购物车列表 ****/
-    list(id){
-       ajax.post('./php/car.php?fn=lst',{userId:id}).then(res=>{
+    static list(page=1){
+        //获取用户，通过用户名获取数据
+        let uId=localStorage.getItem('user');
+       ajax.post('./php/car.php?fn=lst',{userId:uId,page:page}).then(res=>{
         //    console.log(res);
-           let {data,stateCode}=JSON.parse(res);
+           let {data,stateCode,cout}=JSON.parse(res);
+        //    console.log(cout);
            if(stateCode==200){
                let str='';
                data.forEach(ele=>{
@@ -34,7 +37,7 @@ class cart {
                            <i class="down" onclick="cart.addGoodsNum(this,${ele.id})">+</i>
                        </div>
                        <div class="gift5">
-                           <em>${ele.bPirce}</em>
+                           <em>${ele.Num*ele.CarPirce}</em>
                        </div>
                        <div class="gift6">
                            <p><b>移入收藏夹</b></p>
@@ -45,8 +48,20 @@ class cart {
                })
                //追加到页面
                document.querySelector('.tcont').innerHTML=str;
+
+               //渲染页面
+               let pagestr='';
+               for(let i=1;i<=cout;i++){
+                   
+                      pagestr+=`<li>
+                      <a href="javascript:0" onclick="cart.list(${i})">${i}</a>
+                    </li>`
+               }
+               document.querySelector('.pagination').innerHTML=pagestr;
+
            }
        })
+       
     }
 
     /****商品的删除*****/
@@ -64,7 +79,7 @@ class cart {
     /****价格计算和总数***/
     static cpCount(){
 
-     let checkOne=document.getElementsByClassName('check-one');
+     let checkOne=document.getElementsByClassName('check-one');//特别注意：得到的是伪数组，需要转化
      let count=0;
      let je=0;
      //遍历找出选中的单选框
@@ -90,6 +105,8 @@ class cart {
         let inputNumobj=eleObj.previousElementSibling;
         inputNumobj.value=inputNumobj.value-0+1;
         // console.log(inputNumobj.value);
+
+        //调用将num存到数据库的方法；
         cart.updateCart(gId,inputNumobj.value);
         //实现金额的方法
         //获取价格节点
@@ -136,7 +153,7 @@ class cart {
         document.querySelectorAll('.check-all')[this.getAttribute('all-key')].checked = state;
         //3.让所有单选框选中
         //3-1获取每个单选框
-        let checkGoods=document.querySelectorAll('.check-one');
+        let checkGoods=document.querySelectorAll('.check-one');//注意此处获取的是伪数组，需要转化
         console.log(checkGoods);
         //3-2遍历所有商品的单选框  特别注意获取到的是伪数组，要转化为数组 Aarry.from()
         Array.from(checkGoods).forEach(ele=>{
@@ -151,20 +168,23 @@ class cart {
     static goodsCheck(eleObj){
         // console.log(eleObj);
         let state=eleObj.checked;
-        let  checkall=document.getElementsByClassName('check-all');
+        let  checkall=document.getElementsByClassName('check-all');//获取的是一个伪数组需要转化
         //当有一件未选中，全选取消
         if(!state){
             Array.from(checkall)[0].checked=false;
             Array.from(checkall)[1].checked=false;
         }else{
             //所有单选选中，全选选中
-            let checkOne=document.getElementsByClassName('check-one');
-            let len=checkOne.length;
+            let checkOne=document.getElementsByClassName('check-one');//获取的是一个伪数组需要转化
+            let len=Array.from(checkOne).length;
+            console.log(len);
             //计算选中的单选框
             let checkCount=0;
             Array.from(checkOne).forEach(ele=>{
+                //没选中一个单选框，checkCount加一
                 (ele.checked==true) && checkCount++
             })
+            //checkCount与单选框长度相等时，全选框选中
             if(len==checkCount){
                 Array.from(checkall)[0].checked=true;
                 Array.from(checkall)[1].checked=true;
